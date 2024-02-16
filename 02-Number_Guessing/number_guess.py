@@ -28,7 +28,6 @@ def guess_game():
             guess = get_guess()
         if guess == number:
             print("You got it!")
-            guess = get_guess()
             break
 
 
