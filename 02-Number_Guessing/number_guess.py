@@ -8,7 +8,12 @@ def get_number() -> int:
 
 
 def get_guess() -> int:
-    return int(input("Enter a number between 1 and 10: "))
+    while True:
+        try:
+            guess = int(input("Enter a number between 1 and 10: "))
+            return guess
+        except ValueError:
+            print("Please enter a number between 1 and 10!, only numbers are allowed!")
 
 
 def guess_game():
