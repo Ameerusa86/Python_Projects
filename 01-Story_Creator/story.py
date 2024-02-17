@@ -1,29 +1,35 @@
-def get_input(word_type: str) -> str:
-    return input(f"Enter a {word_type}: ")
+import random
+
+class Character:
+    def __init__(self, name, role):
+        self.name = name
+        self.role = role
+
+def get_character_input(role):
+    name = input(f"Enter the {role}'s name: ")
+    return Character(name, role)
 
 def generate_story():
-    noun1 = get_input("noun")
-    adjective1 = get_input("adjective")
-    verb1 = get_input("verb")
-    noun2 = get_input("noun")
-    verb2 = get_input("verb")
+    main_character = get_character_input("main character")
+    sidekick = get_character_input("sidekick")
+    villain = get_character_input("villain")
 
-    story = f"""
-    Once upon a time, there was a {adjective1} {noun1} who loved to {verb1} all day.
+    settings = ["a magical kingdom", "a futuristic city", "an ancient forest", "a hidden cave"]
+    chosen_setting = random.choice(settings)
 
-    One day, {noun2} walked into the room and caught the {noun1} in the act. 
+    plot_twist = input("Enter a plot twist for the story: ")
 
-    {noun2}: "What are you doing?"
-    {noun1}: "I'm just {verb1}ing, what's the big deal?"
-    {noun2}: "Well, it's not every day that you see a {noun1} {verb1}ing in the middle of the day."
-    {noun1}: "I guess you're right. Maybe I should take a break."
-    {noun2}: "That's probably a good idea. Why don't we go {verb2} instead?"
-    {noun1}: "Sure, that sounds like fun!"
+    story = f"Once upon a time, in {chosen_setting}, there lived a {main_character.role} named {main_character.name}. "
+    story += f"{main_character.name} was accompanied by a loyal {sidekick.role}, {sidekick.name}, and they were facing their arch-nemesis, {villain.name}.\n\n"
 
-    And so, {noun2} and the {noun1} went off to {verb2} and had a great time. 
-    The end.
-    """
-    
+    story += f"One day, while exploring {chosen_setting}, they encountered a surprising twist: {plot_twist}\n\n"
+
+    story += f"{villain.name}: \"Ah, {main_character.name}! Your journey ends here!\"\n"
+    story += f"{main_character.name}: \"Not so fast, {villain.name}! With the help of {sidekick.name}, we will overcome this challenge!\"\n\n"
+
+    story += "And so, the epic adventure continued, full of twists and turns, until they reached a surprising conclusion.\n\n"
+    story += f"In the end, {main_character.name}, {sidekick.name}, and even {villain.name} learned valuable lessons, and the world of {chosen_setting} was forever changed. The end."
+
     return story
 
 if __name__ == "__main__":
