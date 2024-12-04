@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Food",
+        "category": "\ud83c\udf54 Food",
+        "amount": 233.25
+    },
+    {
+        "name": "Fun",
+        "category": "\ud83c\udf89 Fun",
+        "amount": 110.0
+    }
+]
